@@ -86,7 +86,7 @@
     "social_twitter_link": "",
     "social_facebook_link": "",
     "social_pinterest_link": "",
-    "social_instagram_link": "https:\/\/www.instagram.com\/fakeinvestor\/",
+    "social_instagram_link": "",
     "social_tiktok_link": "",
     "social_tumblr_link": "",
     "social_snapchat_link": "",
@@ -150,8 +150,8 @@
           "footer-2": {
             "type": "text",
             "settings": {
-              "heading": "Our mission",
-              "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+              "heading": "Fake Investor",
+              "subtext": "<p>Do you want to look like you make bank investing? Whether you're a seasoned investor or new to the game, we've got you covered. With Fake Investor, you can effortlessly browse through a selection of the flashiest gear that shows off exactly who you are.<\/p>"
             }
           }
         },
