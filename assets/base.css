@@ -1,9 +1,3 @@
-/* Custom font */
-@font-face {
-    font-family: "League Spartan";
-    src: url({{ "./LeagueSpartan-VariableFont_wght.ttf" | asset_url }}) format("TrueType");
-}
-
 /* Color custom properties */
 
 :root,
