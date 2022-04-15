@@ -2869,3 +2869,8 @@ details-disclosure > details {
 .font-body-bold {
   font-weight: var(--font-body-weight-bold);
 }
+
+@font-face {
+    font-family: "League Spartan";
+    src: url({{ "./LeagueSpartan-VariableFont_wght.ttf" | asset_url }}) format("TrueType");
+}
