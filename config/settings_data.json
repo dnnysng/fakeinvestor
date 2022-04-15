@@ -104,7 +104,7 @@
           "announcement-bar-0": {
             "type": "announcement",
             "settings": {
-              "text": "Show these peasants you mean business. Use coupon code BIGFLEX to spend 20% more.",
+              "text": "Use coupon code BIGFLEX to spend 20% more.",
               "color_scheme": "background-2",
               "link": ""
             }
