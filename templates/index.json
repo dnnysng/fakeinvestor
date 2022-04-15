@@ -108,20 +108,20 @@
         "collection-0": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "womens-t-shirts"
           }
         },
         "product": {
           "type": "product",
           "settings": {
-            "product": "",
+            "product": "womens-run-amc-t-shirt",
             "second_image": false
           }
         },
         "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "stonks-collection"
           }
         }
       },
