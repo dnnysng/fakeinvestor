@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="{{ request.locale.iso_code }}">
+<html class="no-js" lang="{{ request.locale.iso_code }}" fontify-lang="{{ shop.locale }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +30,8 @@
     {% render 'meta-tags' %}
 
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
-    {{ content_for_header }}
+    {{ content_for_header }} 
+ {{ shop.metafields.fontify.stylesheets }}
 
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
@@ -44,14 +45,19 @@
       {{ body_font_italic | font_face: font_display: 'swap' }}
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {{ settings.type_header_font | font_face: font_display: 'swap' }}
+    
+      @font-face {
+          font-family: "League Spartan";
+          src: url({{ "./LeagueSpartan-VariableFont_wght.ttf" | asset_url }}) format("TrueType");
+      }
 
       :root {
-        --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+        --font-body-family: "League Spartan", {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
         --font-body-style: {{ settings.type_body_font.style }};
         --font-body-weight: {{ settings.type_body_font.weight }};
         --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
 
-        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+        --font-heading-family: "League Spartan", {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
 
@@ -258,5 +264,27 @@
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-  </body>
+  <!-- PF EDT START -->
+<script type='text/javascript'>
+{%- if content_for_header contains 'shopify-product-customizer' -%}
+    {%- if product -%}
+        {%- if product.first_available_variant -%}
+            var pfProductId = {{ product.metafields.printful.is_synced | json }};
+            var pfEdt = {{ shop.metafields.printful.is_edt_enabled | json }};
+            var pfEdtTextColor = {{ shop.metafields.printful.edt_text_color | json }};
+            var pfEdtBackgroundColor = {{ shop.metafields.printful.edt_background_color | json }};
+            var pfEdtBorderColor = {{ shop.metafields.printful.edt_border_color | json }};  
+            var pfEdtUseDefaultStyling = {{ shop.metafields.printful.edt_default_style | json }};
+            var pfEdtTextAlignment = {{ shop.metafields.printful.edt_text_alignment | json }};
+            var pfEdtFlags = {
+                US: "{{ 'US.svg' | asset_url }}",CA: "{{ 'CA.svg' | asset_url }}",ES: "{{ 'ES.svg' | asset_url }}",LV: "{{ 'LV.svg' | asset_url }}",GB: "{{ 'GB.svg' | asset_url }}",DE: "{{ 'DE.svg' | asset_url }}",FR: "{{ 'FR.svg' | asset_url }}",AU: "{{ 'AU.svg' | asset_url }}",JP: "{{ 'JP.svg' | asset_url }}",NZ: "{{ 'NZ.svg' | asset_url }}",IT: "{{ 'IT.svg' | asset_url }}",BR: "{{ 'BR.svg' | asset_url }}",KR: "{{ 'KR.svg' | asset_url }}",NL: "{{ 'NL.svg' | asset_url }}",
+            };
+        {%- else -%}
+            var pfEdt = 0;
+        {%- endif -%}
+    {%- endif -%}
+{%- endif -%}
+</script>
+<!-- PF EDT END -->
+</body>
 </html>
